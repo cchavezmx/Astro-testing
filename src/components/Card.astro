@@ -1,0 +1,11 @@
+---
+
+ const { name, src } = Astro.props
+---
+
+<div class="rounded-lg border-2 border-gray-900 overflow-hidden h-72">
+  <div class="flex flex-col items-between">
+    <img class="object-fill" src={src} alt="">
+    <h4 class="font-semibold p-2 m-0">{name}</h4>
+  </div>
+</div>	

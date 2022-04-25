@@ -1,0 +1,12 @@
+---
+const COLORS = {
+  orange: ['#FF8008', '#FFC837'],
+  blue: ['#D676EE', '#8227FF'],
+}
+
+const [from, to] = COLORS[Astro.props.color]
+---
+
+<span class={`bg-gradient-to-r from-[${from}] to-[${to}] text-transparent bg-clip-text tracking-tight`}>
+  <slot/>
+</span>

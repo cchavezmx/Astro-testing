@@ -1,0 +1,50 @@
+---
+	import WindowsButton from '../components/WindowButton.astro';
+	import TextDegradation from '../components/TextDegradation.astro';
+	import Card from '../components/Card.astro';
+	import { getAllCards } from '../services/getAllCards'
+	const cards = await getAllCards();
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+	</head>
+	<body>
+	<header class="h-20"></header>
+
+	<p class="text-center uppercase font-bold text-gray-500 text-2xl leading-tight mb-5">Sitio web creado con ASTRO</p>
+
+ <h1 class="text-8xl uppercase font-black text-center mb-8">
+ 		<TextDegradation color="orange">Fede</TextDegradation>
+ 		<TextDegradation color="blue">Lobo</TextDegradation>
+ </h1>
+	
+	<p class="text-center text-gray-500 text-2xl leading-snug mb-10">
+		¡Subtitulo del la pagina
+		<br/>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit.!
+	</p>
+
+<section class="px-10 flex items-center justify-center">	
+		<div class="mx-auto w-full max-w-3xl border-2 border-gray-900 rounded-lg">
+			<header class="h-8 bg-gray-900 w-full flex gap-x-1 items-center px-2">
+				<WindowsButton action='close' />
+				<WindowsButton action='minimize' />
+				<WindowsButton action='maximize' />
+			</header>
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full p-5">
+				{
+					cards.map(card => (
+						<Card 
+							src={card.src}
+							name={card.name}
+						/>
+					))
+				}
+			</div>
+		</div>
+</section>
+	</body>
+</html> 
